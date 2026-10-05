@@ -14,7 +14,7 @@ pipeline {
 
         stage('Docker Build Verification') {
             steps {
-                sh 'docker build .'
+                bat 'docker build .'
             }
         }
     }
