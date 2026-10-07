@@ -6,6 +6,9 @@ services:
     ports:
       - "8501:8501"
       - "8000:8000"
+    volumes:
+      - ./app.py:/app/app.py
+      - ./transit_recover.db:/app/transit_recover.db
 
   prometheus:
     image: prom/prometheus
