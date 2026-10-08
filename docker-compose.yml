@@ -9,6 +9,7 @@ services:
     volumes:
       - ./app.py:/app/app.py
       - ./transit_recover.db:/app/transit_recover.db
+      - ./hero_illustration.jpg:/app/hero_illustration.jpg
 
   prometheus:
     image: prom/prometheus
@@ -21,3 +22,13 @@ services:
     image: grafana/grafana
     ports:
       - "3000:3000"
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
